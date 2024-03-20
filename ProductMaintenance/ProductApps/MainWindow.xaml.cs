@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProductApps
 {
@@ -36,8 +37,10 @@ namespace ProductApps
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 decimal totalCharge = cProduct.TotalPayment + 25;
                 decimal totalwrapCharge = totalCharge + 5;
+                decimal totalafterGST = totalwrapCharge * 1.1m;
                 totalChargeTextBlock.Text = Convert.ToString(totalCharge);
                 totalwrapChargeTextBlock.Text = Convert.ToString(totalwrapCharge);
+                chargeafterGSTTextBlock.Text = Convert.ToString(totalafterGST);
             }
             catch (FormatException)
             {
@@ -53,6 +56,7 @@ namespace ProductApps
             totalPaymentTextBlock.Text = "";
             totalChargeTextBlock.Text = "";
             totalwrapChargeTextBlock.Text = "";
+            chargeafterGSTTextBlock.Text = "";
 
         }
 
